@@ -1,0 +1,50 @@
+/* Await User — banner that sits just above the input bar. */
+
+#dynamic_response_banner {
+    box-sizing: border-box;
+    /* Inset slightly so it doesn't run wall-to-wall against the chrome. */
+    width: auto;
+    margin: 0 6px 4px 6px;
+    padding: 7px 13px;
+    font-size: calc(var(--mainFontSize, 1rem) * 0.92);
+    line-height: 1.4;
+    color: var(--SmartThemeBodyColor, #e0e0e0);
+    /* Soft, slightly translucent fill that reads as part of the input area. */
+    background-color: var(--black50a, rgba(0, 0, 0, 0.32));
+    border: 1px solid var(--SmartThemeBorderColor, rgba(255, 255, 255, 0.10));
+    /* Round the top to echo the input box; flatten the bottom so it nests. */
+    border-radius: 8px 8px 4px 4px;
+    backdrop-filter: blur(calc(var(--SmartThemeBlurStrength, 10px) * 1px));
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    animation: dynamic_response_fade_in 0.18s ease;
+}
+
+#dynamic_response_banner:hover {
+    background-color: var(--black70a, rgba(0, 0, 0, 0.45));
+    border-color: var(--SmartThemeBorderColor, rgba(255, 255, 255, 0.18));
+}
+
+#dynamic_response_banner .dynamic_response_icon {
+    flex: 0 0 auto;
+    opacity: 0.55;
+    font-size: 0.85em;
+    /* Subtle accent only on the icon, so the bar stays quiet. */
+    color: var(--SmartThemeQuoteColor, var(--SmartThemeBodyColor, #e0e0e0));
+}
+
+#dynamic_response_banner .dynamic_response_label {
+    flex: 1 1 auto;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    opacity: 0.92;
+}
+
+@keyframes dynamic_response_fade_in {
+    from { opacity: 0; transform: translateY(3px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

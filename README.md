@@ -72,8 +72,38 @@ sentence emphasizing restraint; if it under-fires, soften the "do not" lines.
 Clicking a banner to dismiss it is your release valve for the occasional
 over-fire — nothing breaks if the model tags a beat that didn't need it.
 
-## Notes
+## Optional: hide the tag flash with a display regex
 
-- Reusing the native input field means submit-on-enter, slash commands, quick
-  replies, and the send button all keep working untouched.
-- Banner styling inherits your active SillyTavern theme.
+The extension already removes the tag from your stored chat history and from what
+gets sent to the model — that happens automatically the moment a message is
+received, before the banner appears. You do **not** need to do anything for the
+history to stay clean.
+
+The only thing this regex adds is cosmetic: it removes the brief on-screen flash
+of the tag that can appear between the message rendering and the bubble
+repainting. If you never notice that flash, you can skip this entirely.
+
+This is a **display-only** rule — it changes what you see on screen and nothing
+else. It does not touch the stored message or the prompt, because the extension
+already handles those.
+
+In SillyTavern, open **Extensions → Regex** and add a new script:
+
+- **Script Name:** Hide Dynamic Response (or anything you like)
+- **Find Regex:**
+  ```
+  /<dynamic_response>[\s\S]*?<\/?dynamic_response\/?>/gi
+  ```
+- **Replace With:** leave empty
+- **Trim Out:** leave empty
+- **Affects:** check **AI Output** only
+- **Other options:** check **Only Format Display** (the ephemeral / display-only
+  option). This is the important part — it keeps the rule from altering the
+  stored message, so it stays purely visual.
+
+The exact label of the display-only checkbox varies slightly between SillyTavern
+versions. The rule to follow: for a display-only hide, the option that makes the
+change ephemeral / render-only must be **on**. If your build labels it
+differently, that is the box to look for.
+
+

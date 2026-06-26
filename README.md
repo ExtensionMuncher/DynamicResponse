@@ -106,4 +106,8 @@ versions. The rule to follow: for a display-only hide, the option that makes the
 change ephemeral / render-only must be **on**. If your build labels it
 differently, that is the box to look for.
 
+## Notes
 
+- Reusing the native input field means submit-on-enter, slash commands, quick
+  replies, and the send button all keep working untouched.
+- Banner styling inherits your active SillyTavern theme.

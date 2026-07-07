@@ -43,7 +43,7 @@ Found under Extensions settings as **Dynamic Response**:
 - **Default banner text** — what the banner shows when the model emits an empty
   tag. Defaults to "Your turn."
 
-## Prompt instruction (paste into your system prompt / preset)
+## Prompt instruction (paste into your Post-History Instructions for best usage)
 
 The extension only *catches* the tag — it does not make the model emit it. Add an
 instruction so the model knows the tag exists and, more importantly, when **not**
